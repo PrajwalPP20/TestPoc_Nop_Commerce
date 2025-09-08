@@ -1,7 +1,8 @@
 import { Page } from "@playwright/test";
+import { WebPage } from "../utils/web-page";
 
-export class LoginPage {
-  constructor(private page: Page) {}
+export class LoginPage extends WebPage {
+  
 
   async navigateTo() {
     await this.page.goto("/");
