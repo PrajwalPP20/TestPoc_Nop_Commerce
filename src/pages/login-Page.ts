@@ -1,15 +1,13 @@
-import { Page } from "@playwright/test";
 import { WebPage } from "../utils/web-page";
+import { HomePage } from "./home-page";
 
 export class LoginPage extends WebPage {
-  
+//add locators and constructors
 
-  async navigateTo() {
+  async login(): Promise<HomePage> {
     await this.page.goto("/");
-
-  }
-
-  async clickSubmit(){
     await this.page.click("button[type='submit']");
+    await this.page.waitForTimeout(3000);
+    return new HomePage(this.page);
   }
-}   
+}
